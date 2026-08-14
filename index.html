@@ -7,7 +7,8 @@
 <meta name="description" content="Consulente di strategia e marketing. Aiuto imprenditori e aziende a costruire un posizionamento chiaro e a crescere con un metodo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#ffffff;
@@ -24,30 +25,30 @@
   a{color:inherit}
   img{max-width:100%;display:block}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(22px,5vw,48px)}
-  .grot{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;line-height:1.05}
-  .kick{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase}
+  .grot{font-family:'General Sans',sans-serif;letter-spacing:-0.02em;line-height:1.05}
+  .kick{font-family:'General Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase}
   :focus-visible{outline:2px solid currentColor;outline-offset:3px}
 
   /* bottoni tondi */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;border-radius:999px;transition:transform .18s,background .18s,color .18s}
-  .btn-solid{background:var(--ink);color:#fff;padding:15px 30px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-family:'General Sans',sans-serif;font-weight:600;font-size:16px;border-radius:999px;transition:transform .18s,background .18s,color .18s}
+  .btn-solid{background:var(--ink);color:#fff;padding:17px 34px}
   .btn-solid:hover{background:#333}
   .btn-invert{background:#fff;color:var(--ink);padding:15px 30px}
   .btn-invert:hover{background:#e2e2e2}
-  .btn-line{border:1.5px solid currentColor;padding:14px 28px}
+  .btn-line{border:1.5px solid currentColor;padding:16px 32px}
   .btn-line:hover{opacity:.7}
 
-  /* NAV sticky: la CTA resta sempre visibile */
-  .site-head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.94);backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+  /* NAV sticky: logo centrato */
+  .site-head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.94);backdrop-filter:saturate(150%) blur(10px)}
+  .nav{display:flex;align-items:center;justify-content:center;height:64px;gap:12px}
   .nav .logo img{height:24px;width:auto}
   /* HERO bianco, centrato */
   .hero{background:var(--paper);color:var(--ink)}
   .hero-body{padding:clamp(14px,2vw,26px) 0 clamp(40px,6vw,68px);text-align:center}
-  .hero-inner{max-width:62ch;margin:0 auto}
+  .hero-inner{max-width:68ch;margin:0 auto}
   .hero .kick{color:var(--muted);display:inline-block;margin-bottom:14px}
-  .hero h1{font-size:clamp(27px,4.2vw,50px);font-weight:700;margin:0}
-  .hero .lead{font-size:clamp(16px,1.4vw,19px);color:var(--ink-2);margin:18px auto 0;max-width:52ch}
+  .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(34px,5.4vw,66px);font-weight:700;margin:0}
+  .hero .lead{font-size:clamp(18px,1.9vw,23px);color:var(--ink-2);margin:22px auto 0;max-width:58ch}
   .hero .emph{font-size:clamp(16px,1.5vw,19px);color:var(--ink);font-weight:500;margin:16px auto 0;max-width:52ch}
   .hero .actions{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
   .hero .support{font-size:15px;color:var(--muted);margin:26px auto 0;max-width:56ch}
@@ -92,15 +93,20 @@
   .contact .head h2{color:#fff}
   .contact .head p{color:#c8c8c8;font-size:clamp(17px,1.7vw,20px);margin:24px auto 0;max-width:52ch}
   .contact .head .emph{color:#fff;font-weight:500;font-size:clamp(18px,2vw,22px);margin:16px auto 0;max-width:52ch}
-  form{max-width:600px;margin:clamp(44px,5vw,60px) auto 0;display:grid;gap:20px;text-align:left}
+  .contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,5vw,64px);align-items:start;max-width:960px;margin:clamp(44px,5vw,60px) auto 0}
+  form{margin:0;display:grid;gap:20px;text-align:left}
   .field{display:grid;gap:8px}
-  label{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.03em;color:#c8c8c8}
+  label{font-family:'General Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.03em;color:#c8c8c8}
   input,textarea{font-family:inherit;font-size:16px;color:#fff;background:#161616;border:1.5px solid #333;border-radius:12px;padding:14px}
   input::placeholder,textarea::placeholder{color:#6a6a6a}
   input:focus,textarea:focus{outline:none;border-color:#fff}
   textarea{resize:vertical;min-height:120px}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   form .btn-invert{width:100%;padding:17px;border:none;cursor:pointer;font-size:15px}
+  .contact-info{display:flex;flex-direction:column;gap:28px;text-align:left;padding-top:4px}
+  .contact-info .ci-label{display:block;font-family:'General Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#9a9a9a;margin-bottom:8px}
+  .contact-info a{font-family:'General Sans',sans-serif;font-size:clamp(19px,2vw,24px);font-weight:600;color:#fff;text-decoration:none}
+  .contact-info a:hover{opacity:.75}
 
   /* FOOTER scuro con logo */
   footer{background:var(--ink);color:#7a7a7a;padding:clamp(48px,7vw,80px) 0 46px;text-align:center}
@@ -111,6 +117,7 @@
     .svc-grid{grid-template-columns:1fr}
     .quotes{grid-template-columns:1fr}
     .row2{grid-template-columns:1fr;gap:16px}
+    .contact-grid{grid-template-columns:1fr;gap:36px}
   }
   @media(max-width:560px){
     body{font-size:16px}
@@ -133,7 +140,6 @@
 <header class="site-head" id="top">
   <div class="wrap nav">
     <a href="#top" class="logo" aria-label="Nicolò Atzeni"><img src="logo_web.png" alt="Nicolò Atzeni"></a>
-    <a href="#contatti" class="btn btn-solid">Prenota una consulenza</a>
   </div>
 </header>
 
@@ -141,15 +147,12 @@
 <section class="hero">
   <div class="wrap hero-body">
     <div class="hero-inner">
-      <span class="kick">Nicolò Atzeni</span>
       <h1 class="grot">Branding Strategico per far crescere la tua azienda.</h1>
       <p class="lead">Aiuto imprenditori e aziende a costruire un posizionamento chiaro, sviluppare un brand riconoscibile e creare strategie di marketing che generano risultati concreti.</p>
-      <p class="emph">Se vuoi attrarre più clienti, differenziarti dalla concorrenza e crescere con una direzione chiara, sei nel posto giusto.</p>
       <div class="actions">
-        <a href="#contatti" class="btn btn-solid">Prenota una consulenza</a>
-        <a href="#servizi" class="btn btn-line">Cosa faccio</a>
+        <a href="#contatti" class="btn btn-solid">Analisi gratuita</a>
+        <a href="#contatti" class="btn btn-line">Contatti</a>
       </div>
-      <p class="support">Negli ultimi anni ho supportato <b>oltre 100 imprenditori italiani</b> nell'avvio, nella crescita e nel consolidamento delle loro attività, trasformando idee e progetti in aziende più solide, visibili e competitive.</p>
     </div>
   </div>
 </section>
@@ -248,19 +251,31 @@
         <p>Se vuoi capire come migliorare il posizionamento del tuo brand, acquisire più clienti e sviluppare una strategia di crescita efficace, possiamo parlarne.</p>
         <p class="emph">Prenota una consulenza e scopri quali opportunità può cogliere la tua azienda.</p>
       </div>
-      <!-- PLACEHOLDER: collegare invio del form (mail / WhatsApp / servizio) -->
-      <form onsubmit="return false">
-        <div class="row2">
-          <div class="field"><label for="f-nome">Nome e cognome</label><input id="f-nome" type="text" autocomplete="name"></div>
-          <div class="field"><label for="f-azienda">Azienda</label><input id="f-azienda" type="text"></div>
+      <div class="contact-grid">
+        <!-- PLACEHOLDER: collegare invio del form (mail / WhatsApp / servizio) -->
+        <form onsubmit="return false">
+          <div class="row2">
+            <div class="field"><label for="f-nome">Nome e cognome</label><input id="f-nome" type="text" autocomplete="name"></div>
+            <div class="field"><label for="f-azienda">Azienda</label><input id="f-azienda" type="text"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email"></div>
+            <div class="field"><label for="f-tel">Telefono</label><input id="f-tel" type="tel" autocomplete="tel"></div>
+          </div>
+          <div class="field"><label for="f-msg">Parlami della tua azienda e del tuo obiettivo</label><textarea id="f-msg"></textarea></div>
+          <button class="btn btn-invert" type="submit">Analisi gratuita</button>
+        </form>
+        <div class="contact-info">
+          <div>
+            <span class="ci-label">Telefono</span>
+            <a href="tel:+393455277657">345 527 7657</a>
+          </div>
+          <div>
+            <span class="ci-label">Email</span>
+            <a href="mailto:info@nicoloatzeni.com">info@nicoloatzeni.com</a>
+          </div>
         </div>
-        <div class="row2">
-          <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email"></div>
-          <div class="field"><label for="f-tel">Telefono</label><input id="f-tel" type="tel" autocomplete="tel"></div>
-        </div>
-        <div class="field"><label for="f-msg">Parlami della tua azienda e del tuo obiettivo</label><textarea id="f-msg"></textarea></div>
-        <button class="btn btn-invert" type="submit">Prenota una consulenza</button>
-      </form>
+      </div>
     </div>
   </section>
 
