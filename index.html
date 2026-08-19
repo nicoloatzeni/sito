@@ -4,10 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nicolò Atzeni — Strategie per far crescere la tua azienda</title>
-<meta name="description" content="Consulente di strategia e marketing. Aiuto imprenditori e aziende a costruire un posizionamento chiaro e a crescere con un metodo.">
-<link rel="icon" href="favicon.ico" sizes="32x32">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-96x96.png" type="image/png" sizes="96x96">
+<meta name="description" content="Aiuto imprenditori e aziende a costruire un posizionamento chiaro e a crescere con un metodo.">
+<link rel="icon" href="favicon.ico" sizes="32x32"><link rel="icon" href="favicon-96x96.png" type="image/png" sizes="96x96">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,14 +41,31 @@
   .btn-line{border:1.5px solid currentColor;padding:16px 32px}
   .btn-line:hover{opacity:.7}
 
-  /* NAV sticky: logo centrato */
+  /* NAV sticky: logo sx, voci centro, cta dx */
   .site-head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.94);backdrop-filter:saturate(150%) blur(10px)}
-  .nav{display:flex;align-items:center;justify-content:center;height:64px;gap:12px}
+  .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;gap:12px}
+  .nav .logo{justify-self:start}
   .nav .logo img{height:24px;width:auto}
+  .nav-links{justify-self:center;display:flex;align-items:center;gap:32px;list-style:none;margin:0;padding:0}
+  .nav-links a{font-family:'General Sans',sans-serif;font-weight:500;font-size:15px;text-decoration:none;color:var(--ink-2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{justify-self:end;padding:11px 24px;font-size:14px}
+  @media (max-width:720px){
+    .nav-links{display:none}
+    .nav{grid-template-columns:auto auto}
+  }
   /* HERO bianco, centrato */
   .hero{background:var(--paper);color:var(--ink)}
   .hero-body{padding:clamp(14px,2vw,26px) 0 clamp(40px,6vw,68px);text-align:center}
   .hero-inner{max-width:68ch;margin:0 auto}
+  .hero-inner h1,.hero-inner .lead,.hero-inner .actions{opacity:0;transform:translateY(28px);animation:heroUp .9s cubic-bezier(.16,.84,.44,1) forwards}
+  .hero-inner h1{animation-delay:.05s}
+  .hero-inner .lead{animation-delay:.2s}
+  .hero-inner .actions{animation-delay:.35s}
+  @keyframes heroUp{to{opacity:1;transform:translateY(0)}}
+  @media (prefers-reduced-motion:reduce){
+    .hero-inner h1,.hero-inner .lead,.hero-inner .actions{animation:none;opacity:1;transform:none}
+  }
   .hero .kick{color:var(--muted);display:inline-block;margin-bottom:14px}
   .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(34px,5.4vw,66px);font-weight:700;margin:0}
   .hero .lead{font-size:clamp(18px,1.9vw,23px);color:var(--ink-2);margin:22px auto 0;max-width:58ch}
@@ -62,8 +77,41 @@
   /* sezioni centrate */
   section{padding:clamp(40px,5.5vw,76px) 0}
   .head{max-width:60ch;margin:0 auto;text-align:center}
+
+  /* CHI SONO */
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+  .about-text .kick{display:block;margin-bottom:10px;color:var(--muted)}
+  .about-text h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(28px,4.6vw,52px);line-height:1.08;margin:0 0 18px}
+  .about-text p{color:var(--ink-2);margin:0 0 14px}
+  .about-text p:last-child{margin-bottom:0}
+  .about-photo{justify-self:center}
+  .photo-frame{position:relative;width:280px;height:280px}
+  .photo-frame::before{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 20px 50px rgba(0,0,0,0.12)}
+  .photo-frame img{position:relative;width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;clip-path:circle(50%)}
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;text-align:center;gap:32px}
+    .about-photo{order:-1}
+    .photo-frame{width:200px;height:200px}
+  }
+
+  /* SERVIZI (speculare a CHI SONO) */
+  .servizi-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
+  .servizi-graphic{justify-self:center;width:280px;height:280px;border-radius:24px;background:var(--soft);box-shadow:0 20px 50px rgba(0,0,0,0.08);padding:24px}
+  .servizi-graphic svg{width:100%;height:100%;display:block}
+  .servizi-text .kick{display:block;margin-bottom:10px;color:var(--muted)}
+  .servizi-text h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(28px,4.6vw,52px);line-height:1.08;margin:0 0 18px}
+  .servizi-text p{color:var(--ink-2);margin:0 0 20px}
+  .servizi-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+  .servizi-list li{position:relative;padding-left:26px;color:var(--ink);font-weight:500}
+  .servizi-list li::before{content:"";position:absolute;left:0;top:8px;width:10px;height:10px;border-radius:50%;background:var(--ink)}
+  @media (max-width:760px){
+    .servizi-grid{grid-template-columns:1fr;text-align:center;gap:32px}
+    .servizi-graphic{width:200px;height:200px}
+    .servizi-list li{padding-left:0}
+    .servizi-list li::before{display:none}
+  }
   .head .kick{color:var(--muted)}
-  .head h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,4.6vw,52px);letter-spacing:-0.02em;line-height:1.08;margin:16px 0 0}
+  .head h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(28px,4.6vw,52px);letter-spacing:-0.02em;line-height:1.08;margin:16px 0 0}
   .prose{max-width:60ch;margin:0 auto;text-align:center}
   .prose p{color:var(--ink-2);font-size:clamp(16px,1.6vw,19px);margin:22px 0 0}
   .stack{list-style:none;max-width:620px;margin:34px auto 0;padding:0;text-align:center}
@@ -83,7 +131,7 @@
   .proof .head h2{color:#fff}
   .proof .after{color:#9a9a9a}
   .bignum{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(84px,15vw,180px);line-height:0.9;letter-spacing:-0.03em;text-align:center;color:#fff}
-  .bignum small{display:block;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;letter-spacing:0.02em;color:#9a9a9a;margin:18px auto 0;max-width:30ch}
+  .bignum small{display:block;font-family:'Inter',sans-serif;font-size:24px;font-weight:500;letter-spacing:0.02em;color:#9a9a9a;margin:18px auto 0;max-width:38ch}
   .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:clamp(44px,5vw,64px)}
   .quote{background:#161616;border:1px solid #333;border-radius:16px;padding:32px 30px;text-align:left}
   .quote p{font-size:19px;line-height:1.5;margin:0 0 20px;color:#fff}
@@ -98,17 +146,18 @@
   .contact .head h2{color:#fff}
   .contact .head p{color:#c8c8c8;font-size:clamp(17px,1.7vw,20px);margin:24px auto 0;max-width:52ch}
   .contact .head .emph{color:#fff;font-weight:500;font-size:clamp(18px,2vw,22px);margin:16px auto 0;max-width:52ch}
-  .contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,5vw,64px);align-items:start;max-width:960px;margin:clamp(44px,5vw,60px) auto 0}
-  form{margin:0;display:grid;gap:20px;text-align:left}
+  .contact-grid{display:flex;flex-direction:column;align-items:center;gap:clamp(32px,5vw,48px);max-width:640px;margin:clamp(44px,5vw,60px) auto 0}
+  form{margin:0;display:grid;gap:20px;text-align:left;width:100%;max-width:440px}
   .field{display:grid;gap:8px}
   label{font-family:'General Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.03em;color:#c8c8c8}
   input,textarea{font-family:inherit;font-size:16px;color:#fff;background:#161616;border:1.5px solid #333;border-radius:12px;padding:14px}
   input::placeholder,textarea::placeholder{color:#6a6a6a}
   input:focus,textarea:focus{outline:none;border-color:#fff}
   textarea{resize:vertical;min-height:120px}
-  .row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   form .btn-invert{width:100%;padding:17px;border:none;cursor:pointer;font-size:15px}
-  .contact-info{display:flex;flex-direction:column;gap:28px;text-align:left;padding-top:4px}
+  .consent{margin:0;text-align:center;font-size:14px;color:#8a8a8a}
+  .consent a{color:#c8c8c8;text-decoration:underline}
+  .contact-info{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:clamp(28px,6vw,56px);text-align:center}
   .contact-info .ci-label{display:block;font-family:'General Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#9a9a9a;margin-bottom:8px}
   .contact-info a{font-family:'General Sans',sans-serif;font-size:clamp(19px,2vw,24px);font-weight:600;color:#fff;text-decoration:none}
   .contact-info a:hover{opacity:.75}
@@ -117,12 +166,13 @@
   footer{background:var(--ink);color:#7a7a7a;padding:clamp(48px,7vw,80px) 0 46px;text-align:center}
   footer .logo img{height:30px;width:auto;margin:0 auto;opacity:.9}
   footer .copy{margin-top:26px;font-size:14px}
+  footer .legal-links{margin-top:10px;display:flex;justify-content:center;gap:18px;font-size:13px}
+  footer .legal-links a{color:#7a7a7a;text-decoration:none}
+  footer .legal-links a:hover{color:#fff}
 
   @media(max-width:860px){
     .svc-grid{grid-template-columns:1fr}
     .quotes{grid-template-columns:1fr}
-    .row2{grid-template-columns:1fr;gap:16px}
-    .contact-grid{grid-template-columns:1fr;gap:36px}
   }
   @media(max-width:560px){
     body{font-size:16px}
@@ -144,7 +194,13 @@
 <!-- NAV sticky -->
 <header class="site-head" id="top">
   <div class="wrap nav">
-    <a href="#top" class="logo" aria-label="Nicolò Atzeni"><img src="logo_web.png" alt="Nicolò Atzeni"></a>
+    <a href="#top" class="logo" aria-label="Nicolò Atzeni"><img src="logo.svg" alt="Nicolò Atzeni"></a>
+    <ul class="nav-links">
+      <li><a href="#chi-sono">Chi sono</a></li>
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#risultati">Risultati</a></li>
+    </ul>
+    <a href="#contatti" class="btn btn-solid nav-cta">Inizia ora</a>
   </div>
 </header>
 
@@ -152,10 +208,10 @@
 <section class="hero">
   <div class="wrap hero-body">
     <div class="hero-inner">
-      <h1 class="grot">Branding Strategico per far crescere la tua azienda.</h1>
-      <p class="lead">Aiuto imprenditori e aziende a costruire un posizionamento chiaro, sviluppare un brand riconoscibile e creare strategie di marketing che generano risultati concreti.</p>
+      <h1 class="grot">La strategia giusta per far crescere la tua azienda.</h1>
+      <p class="lead">Aiuto imprenditori italiani a costruire un business scalabile, raddoppiare le vendite e creare un brand riconoscibile&nbsp;in&nbsp;tutto&nbsp;il&nbsp;mondo.</p>
       <div class="actions">
-        <a href="#contatti" class="btn btn-solid">Analisi gratuita</a>
+        <a href="#contatti" class="btn btn-solid">Inizia ora</a>
         <a href="#contatti" class="btn btn-line">Contatti</a>
       </div>
     </div>
@@ -164,86 +220,56 @@
 
 <main>
 
-  <!-- LA CRESCITA NON AVVIENE PER CASO -->
-  <section>
-    <div class="wrap">
-      <div class="head">
-        <span class="kick">Il punto di partenza</span>
-        <h2 class="grot">La crescita non avviene per caso.</h2>
+  <!-- CHI SONO -->
+  <section id="chi-sono">
+    <div class="wrap about-grid">
+      <div class="about-text">
+        <span class="kick">Chi sono</span>
+        <h2 class="grot">Un unico punto di riferimento, sempre a disposizione.</h2>
+        <p>Mi chiamo Nicolò Atzeni e da anni affianco imprenditori e piccole-medie imprese italiane nella costruzione di una strategia solida per la loro azienda.</p>
+        <p>Ho iniziato lavorando a stretto contatto con realtà locali, imparando che la crescita non nasce da tattiche isolate ma da un posizionamento chiaro e da un brand riconoscibile. Oggi porto lo stesso approccio a chi vuole smettere di improvvisare e costruire qualcosa di duraturo.</p>
       </div>
-      <div class="prose">
-        <p>Molte aziende investono in marketing senza una strategia precisa. Altre hanno ottimi prodotti o servizi, ma non riescono a comunicarne il valore. Il risultato è sempre lo stesso: tempo, budget e opportunità sprecate.</p>
-        <p>Il mio lavoro consiste nell'aiutarti a costruire le fondamenta della crescita:</p>
+      <div class="about-photo">
+        <div class="photo-frame">
+          <img src="profilo.png" alt="Nicolò Atzeni">
+        </div>
       </div>
-      <ul class="stack">
-        <li>Strategia di business e sviluppo commerciale</li>
-        <li>Posizionamento e differenziazione sul mercato</li>
-        <li>Branding e identità del marchio</li>
-        <li>Strategie di marketing e acquisizione clienti</li>
-        <li>Ottimizzazione dei processi di crescita</li>
-      </ul>
-      <p class="after">Ogni progetto nasce da un'analisi approfondita e viene costruito attorno agli obiettivi reali dell'azienda.</p>
     </div>
   </section>
 
   <!-- SERVIZI -->
   <section id="servizi">
-    <div class="wrap">
-      <div class="head">
-        <span class="kick">Servizi</span>
-        <h2 class="grot">Cosa posso fare per la tua azienda.</h2>
+    <div class="wrap servizi-grid">
+      <div class="servizi-graphic">
+        <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafico stilizzato di crescita">
+          <circle cx="140" cy="140" r="138" stroke="#e6e6e6" stroke-width="1.5"/>
+          <circle cx="140" cy="140" r="100" stroke="#e6e6e6" stroke-width="1.5"/>
+          <line x1="46" y1="210" x2="234" y2="210" stroke="#d8d8d8" stroke-width="1.5"/>
+          <polyline points="60,190 106,150 150,168 200,90" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M182 90 H200 V108" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
       </div>
-      <div class="svc-grid">
-        <div class="svc">
-          <h3>Strategia</h3>
-          <p>Definiamo una direzione chiara per la crescita del business, identificando opportunità, priorità e azioni ad alto impatto.</p>
-        </div>
-        <div class="svc">
-          <h3>Branding</h3>
-          <p>Costruiamo un brand forte, coerente e memorabile che trasmetta fiducia e renda la tua azienda riconoscibile nel mercato.</p>
-        </div>
-        <div class="svc">
-          <h3>Marketing</h3>
-          <p>Sviluppiamo strategie e sistemi di acquisizione clienti orientati ai risultati, con un approccio misurabile e sostenibile nel tempo.</p>
-        </div>
+      <div class="servizi-text">
+        <span class="kick">Servizi</span>
+        <h2 class="grot">Un percorso, tre leve di crescita.</h2>
+        <p>Un metodo su misura che unisce strategia, brand e acquisizione clienti in un unico percorso, pensato per aziende che vogliono smettere di improvvisare e crescere in modo misurabile.</p>
+        <ul class="servizi-list">
+          <li>Business Plan e Business Model</li>
+          <li>Sistemi di acquisizione clienti</li>
+          <li>Branding strategico</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- PROOF -->
-  <section class="proof">
+  <section class="proof" id="risultati">
     <div class="wrap">
       <div class="head">
         <span class="kick">Risultati</span>
         <h2 class="grot">Hanno scelto di crescere con un metodo.</h2>
       </div>
-      <div class="bignum">100+<small>Imprenditori italiani accompagnati nella crescita, dalle startup alle PMI.</small></div>
-      <div class="quotes">
-        <div class="quote">
-          <p>"Avevamo un buon servizio ma comunicavamo male chi eravamo. Nicolò ha messo ordine nel posizionamento e rifatto tutta la comunicazione: in pochi mesi le richieste di preventivo sono più che raddoppiate."</p>
-          <div class="who">Marco Piras · Titolare, Piras Impianti</div>
-        </div>
-        <div class="quote">
-          <p>"Il valore vero è avere una sola persona che segue strategia, brand e marketing insieme. Abbiamo lanciato il nuovo marchio con una direzione chiara e i risultati si sono visti da subito."</p>
-          <div class="who">Giulia Serra · Founder, Serra Studio</div>
-        </div>
-      </div>
-      <p class="after">Ogni azienda è diversa, ma il principio è sempre lo stesso: una crescita duratura nasce da una strategia chiara e da un'esecuzione efficace.</p>
-    </div>
-  </section>
-
-  <!-- PERCHE LAVORARE CON ME -->
-  <section class="why">
-    <div class="wrap">
-      <div class="head">
-        <span class="kick">Perché lavorare con me</span>
-        <h2 class="grot">Un unico punto di riferimento per la crescita.</h2>
-      </div>
-      <div class="prose">
-        <p>Non offro soluzioni standardizzate o strategie preconfezionate.</p>
-        <p>Lavoro al fianco degli imprenditori per comprendere a fondo il business, individuare le leve di crescita più importanti e costruire un percorso concreto verso gli obiettivi.</p>
-        <p class="strong">Un solo interlocutore per strategia, brand e marketing, e per lo sviluppo della tua azienda.</p>
-      </div>
+      <div class="bignum"><span id="counter" data-target="100" data-start="0">0</span>+<small>Imprenditori italiani accompagnati nella crescita, dalle startup alle grandi aziende.</small></div>
     </div>
   </section>
 
@@ -253,33 +279,28 @@
       <div class="head">
         <span class="kick">Iniziamo</span>
         <h2 class="grot">Costruiamo la prossima fase della tua crescita.</h2>
-        <p>Se vuoi capire come migliorare il posizionamento del tuo brand, acquisire più clienti e sviluppare una strategia di crescita efficace, possiamo parlarne.</p>
-        <p class="emph">Prenota una consulenza e scopri quali opportunità può cogliere la tua azienda.</p>
+        <p>Migliora il posizionamento del tuo brand, acquisisci più clienti e sviluppa una strategia di crescita efficace.</p>
       </div>
       <div class="contact-grid">
-        <!-- PLACEHOLDER: collegare invio del form (mail / WhatsApp / servizio) -->
-        <form onsubmit="return false">
-          <div class="row2">
-            <div class="field"><label for="f-nome">Nome e cognome</label><input id="f-nome" type="text" autocomplete="name"></div>
-            <div class="field"><label for="f-azienda">Azienda</label><input id="f-azienda" type="text"></div>
-          </div>
-          <div class="row2">
-            <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email"></div>
-            <div class="field"><label for="f-tel">Telefono</label><input id="f-tel" type="tel" autocomplete="tel"></div>
-          </div>
-          <div class="field"><label for="f-msg">Parlami della tua azienda e del tuo obiettivo</label><textarea id="f-msg"></textarea></div>
-          <button class="btn btn-invert" type="submit">Analisi gratuita</button>
-        </form>
         <div class="contact-info">
           <div>
             <span class="ci-label">Telefono</span>
-            <a href="tel:+393455277657">345 527 7657</a>
+            <a href="tel:+393455277657">+39 345 527 7657</a>
           </div>
           <div>
-            <span class="ci-label">Email</span>
+            <span class="ci-label">Mail</span>
             <a href="mailto:info@nicoloatzeni.com">info@nicoloatzeni.com</a>
           </div>
         </div>
+        <!-- PLACEHOLDER: collegare invio del form (mail / WhatsApp / servizio) -->
+        <form onsubmit="return false">
+          <div class="field"><label for="f-nome">Nome</label><input id="f-nome" type="text" autocomplete="name"></div>
+          <div class="field"><label for="f-email">Mail</label><input id="f-email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="f-tel">Telefono</label><input id="f-tel" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-msg">Messaggio</label><textarea id="f-msg"></textarea></div>
+          <button class="btn btn-invert" type="submit">Inizia ora</button>
+          <p class="consent">Cliccando "Inizia ora" accetto la <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a></p>
+        </form>
       </div>
     </div>
   </section>
@@ -289,9 +310,46 @@
 <footer>
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Nicolò Atzeni"><img src="logo_white.png" alt="Nicolò Atzeni"></a>
-    <div class="copy">© 2026 Nicolò Atzeni · Strategia e marketing</div>
+    <div class="copy">© 2026 Nicolò Atzeni · 04240030926</div>
+    <div class="legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookie-policy.html">Cookie Policy</a>
+    </div>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var el = document.getElementById('counter');
+    if (!el) return;
+    var target = parseInt(el.dataset.target, 10);
+    var start = parseInt(el.dataset.start || '0', 10);
+    var duration = 700;
+    var started = false;
+
+    function animate(){
+      if (started) return;
+      started = true;
+      var startTime = null;
+      function step(ts){
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(start + eased * (target - start));
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) animate();
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(el.closest('.bignum'));
+  })();
+</script>
 
 </body>
 </html>
