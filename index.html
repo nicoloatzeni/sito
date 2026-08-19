@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nicolò Atzeni — Strategie per far crescere la tua azienda</title>
+<title>Nicolò Atzeni - Consulenza strategica per aziende</title>
 <meta name="description" content="Aiuto imprenditori e aziende a costruire un posizionamento chiaro e a crescere con un metodo.">
 <link rel="icon" href="favicon.ico" sizes="32x32"><link rel="icon" href="favicon-96x96.png" type="image/png" sizes="96x96">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -55,8 +55,8 @@
     .nav{grid-template-columns:auto auto}
   }
   /* HERO bianco, centrato */
-  .hero{background:var(--paper);color:var(--ink)}
-  .hero-body{padding:clamp(14px,2vw,26px) 0 clamp(40px,6vw,68px);text-align:center}
+  .hero{background:var(--paper);color:var(--ink);padding:0;min-height:calc(100vh - 64px);display:flex;align-items:center}
+  .hero-body{padding:clamp(28px,5vw,56px) 0;text-align:center;width:100%}
   .hero-inner{max-width:68ch;margin:0 auto}
   .hero-inner h1,.hero-inner .lead,.hero-inner .actions{opacity:0;transform:translateY(28px);animation:heroUp .9s cubic-bezier(.16,.84,.44,1) forwards}
   .hero-inner h1{animation-delay:.05s}
@@ -75,7 +75,8 @@
   .hero .support b{color:var(--ink);font-weight:600}
 
   /* sezioni centrate */
-  section{padding:clamp(40px,5.5vw,76px) 0}
+  section{padding:clamp(90px,14vw,180px) 0}
+  #chi-sono,#servizi,#risultati{padding-top:clamp(40px,6vw,70px);scroll-margin-top:100px}
   .head{max-width:60ch;margin:0 auto;text-align:center}
 
   /* CHI SONO */
@@ -146,7 +147,7 @@
   .contact .head h2{color:#fff}
   .contact .head p{color:#c8c8c8;font-size:clamp(17px,1.7vw,20px);margin:24px auto 0;max-width:52ch}
   .contact .head .emph{color:#fff;font-weight:500;font-size:clamp(18px,2vw,22px);margin:16px auto 0;max-width:52ch}
-  .contact-grid{display:flex;flex-direction:column;align-items:center;gap:clamp(32px,5vw,48px);max-width:640px;margin:clamp(44px,5vw,60px) auto 0}
+  .contact-grid{display:flex;flex-direction:column;align-items:center;gap:clamp(90px,12vw,140px);max-width:640px;margin:clamp(44px,5vw,60px) auto 0}
   form{margin:0;display:grid;gap:20px;text-align:left;width:100%;max-width:440px}
   .field{display:grid;gap:8px}
   label{font-family:'General Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.03em;color:#c8c8c8}
@@ -170,6 +171,18 @@
   footer .legal-links a{color:#7a7a7a;text-decoration:none}
   footer .legal-links a:hover{color:#fff}
 
+  /* COOKIE BANNER */
+  .cookie-banner{position:fixed;right:20px;bottom:20px;z-index:100;max-width:360px;background:var(--ink);color:#fff;border-radius:16px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,0.25);opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+  .cookie-banner.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+  .cookie-banner p{margin:0 0 16px;font-size:14px;line-height:1.6;color:#c8c8c8}
+  .cookie-banner a{color:#fff;text-decoration:underline}
+  .cookie-actions{display:flex;gap:10px}
+  .cookie-actions .btn{flex:1;padding:11px 0;font-size:14px}
+  .cookie-actions .btn-line{border-color:#444}
+  @media(max-width:480px){
+    .cookie-banner{left:16px;right:16px;bottom:16px;max-width:none}
+  }
+
   @media(max-width:860px){
     .svc-grid{grid-template-columns:1fr}
     .quotes{grid-template-columns:1fr}
@@ -179,7 +192,7 @@
     .nav{height:58px}
     .nav .logo img{height:20px}
     .nav .btn-solid{padding:10px 16px;font-size:13px}
-    .hero-body{padding-top:38px}
+    .hero{min-height:calc(100vh - 58px)}
     .hero .actions{gap:12px}
     .hero .actions .btn{flex:1 1 100%}
     section{padding:44px 0}
@@ -226,8 +239,8 @@
       <div class="about-text">
         <span class="kick">Chi sono</span>
         <h2 class="grot">Un unico punto di riferimento, sempre a disposizione.</h2>
-        <p>Mi chiamo Nicolò Atzeni e da anni affianco imprenditori e piccole-medie imprese italiane nella costruzione di una strategia solida per la loro azienda.</p>
-        <p>Ho iniziato lavorando a stretto contatto con realtà locali, imparando che la crescita non nasce da tattiche isolate ma da un posizionamento chiaro e da un brand riconoscibile. Oggi porto lo stesso approccio a chi vuole smettere di improvvisare e costruire qualcosa di duraturo.</p>
+        <p>Mi chiamo Nicolò Atzeni e da anni affianco imprenditori e imprese italiane nella costruzione di una strategia solida per la loro azienda.</p>
+        <p>Ho iniziato lavorando a stretto contatto con realtà locali, imparando che la crescita non nasce da tattiche isolate ma da un posizionamento chiaro e da un brand riconoscibile.</p>
       </div>
       <div class="about-photo">
         <div class="photo-frame">
@@ -246,12 +259,16 @@
           <circle cx="140" cy="140" r="100" stroke="#e6e6e6" stroke-width="1.5"/>
           <line x1="46" y1="210" x2="234" y2="210" stroke="#d8d8d8" stroke-width="1.5"/>
           <polyline points="60,190 106,150 150,168 200,90" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="60" cy="190" r="6" fill="#0a0a0a"/>
+          <circle cx="106" cy="150" r="6" fill="#0a0a0a"/>
+          <circle cx="150" cy="168" r="6" fill="#0a0a0a"/>
+          <circle cx="200" cy="90" r="7" fill="#0a0a0a"/>
           <path d="M182 90 H200 V108" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </div>
       <div class="servizi-text">
         <span class="kick">Servizi</span>
-        <h2 class="grot">Un percorso, tre leve di crescita.</h2>
+        <h2 class="grot">Un percorso guidato, dall'inizio alla fine.</h2>
         <p>Un metodo su misura che unisce strategia, brand e acquisizione clienti in un unico percorso, pensato per aziende che vogliono smettere di improvvisare e crescere in modo misurabile.</p>
         <ul class="servizi-list">
           <li>Business Plan e Business Model</li>
@@ -277,7 +294,7 @@
   <section class="contact" id="contatti">
     <div class="wrap">
       <div class="head">
-        <span class="kick">Iniziamo</span>
+        <span class="kick">Inizia ora</span>
         <h2 class="grot">Costruiamo la prossima fase della tua crescita.</h2>
         <p>Migliora il posizionamento del tuo brand, acquisisci più clienti e sviluppa una strategia di crescita efficace.</p>
       </div>
@@ -298,8 +315,8 @@
           <div class="field"><label for="f-email">Mail</label><input id="f-email" type="email" autocomplete="email"></div>
           <div class="field"><label for="f-tel">Telefono</label><input id="f-tel" type="tel" autocomplete="tel"></div>
           <div class="field"><label for="f-msg">Messaggio</label><textarea id="f-msg"></textarea></div>
-          <button class="btn btn-invert" type="submit">Inizia ora</button>
-          <p class="consent">Cliccando "Inizia ora" accetto la <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a></p>
+          <button class="btn btn-invert" type="submit">Invia</button>
+          <p class="consent">Cliccando "Invia" accetto la <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a></p>
         </form>
       </div>
     </div>
@@ -317,6 +334,31 @@
     </div>
   </div>
 </footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>Utilizziamo un numero minimo di cookie tecnici e di terze parti (font) per far funzionare il sito al meglio. Leggi la <a href="cookie-policy.html">Cookie Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-line" id="cookieReject">Rifiuta</button>
+    <button type="button" class="btn btn-solid" id="cookieAccept">Accetta</button>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var banner = document.getElementById('cookieBanner');
+    var accept = document.getElementById('cookieAccept');
+    var reject = document.getElementById('cookieReject');
+    if (!banner) return;
+    var choice = localStorage.getItem('cookie-consent');
+    if (!choice) banner.classList.add('visible');
+    function hide(value){
+      localStorage.setItem('cookie-consent', value);
+      banner.classList.remove('visible');
+    }
+    accept.addEventListener('click', function(){ hide('accepted'); });
+    reject.addEventListener('click', function(){ hide('rejected'); });
+  })();
+</script>
 
 <script>
   (function(){
