@@ -61,17 +61,18 @@
   }
   /* HERO bianco, centrato */
   .hero{background:var(--paper);color:var(--ink);padding:0;min-height:calc(100vh - 64px);display:flex;align-items:center}
-  .hero-body{padding:clamp(28px,5vw,56px) 0;text-align:center;width:100%}
+  .hero-body{padding:clamp(28px,5vw,56px) clamp(22px,5vw,48px);text-align:center;width:100%}
   .hero-inner{max-width:68ch;margin:0 auto}
-  .hero-inner h1,.hero-inner .lead,.hero-inner .actions{opacity:0;transform:translateY(28px);animation:heroUp .9s cubic-bezier(.16,.84,.44,1) forwards}
+  .hero-inner .hero-name,.hero-inner h1,.hero-inner .lead,.hero-inner .actions{opacity:0;transform:translateY(28px);animation:heroUp .9s cubic-bezier(.16,.84,.44,1) forwards}
   .hero-inner h1{animation-delay:.05s}
   .hero-inner .lead{animation-delay:.2s}
   .hero-inner .actions{animation-delay:.35s}
   @keyframes heroUp{to{opacity:1;transform:translateY(0)}}
   @media (prefers-reduced-motion:reduce){
-    .hero-inner h1,.hero-inner .lead,.hero-inner .actions{animation:none;opacity:1;transform:none}
+    .hero-inner .hero-name,.hero-inner h1,.hero-inner .lead,.hero-inner .actions{animation:none;opacity:1;transform:none}
   }
   .hero .kick{color:var(--muted);display:inline-block;margin-bottom:14px}
+  .hero-name{font-family:'General Sans',sans-serif;font-weight:500;font-size:15px;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
   .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(34px,5.4vw,66px);font-weight:700;margin:0}
   .hero .lead{font-size:clamp(18px,1.9vw,23px);color:var(--ink-2);margin:22px auto 0;max-width:58ch}
   .hero .emph{font-size:clamp(16px,1.5vw,19px);color:var(--ink);font-weight:500;margin:16px auto 0;max-width:52ch}
@@ -137,7 +138,7 @@
   .proof .head h2{color:#fff}
   .proof .after{color:#9a9a9a}
   .bignum{font-family:'General Sans',sans-serif;font-weight:700;font-size:clamp(84px,15vw,180px);line-height:0.9;letter-spacing:-0.03em;text-align:center;color:#fff}
-  .bignum small{display:block;font-family:'Inter',sans-serif;font-size:24px;font-weight:500;letter-spacing:0.02em;color:#9a9a9a;margin:18px auto 0;max-width:38ch}
+  .bignum small{display:block;font-family:'Inter',sans-serif;font-size:24px;font-weight:500;line-height:1.45;letter-spacing:0.02em;color:#9a9a9a;margin:18px auto 0;max-width:38ch}
   .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:clamp(44px,5vw,64px)}
   .quote{background:#161616;border:1px solid #333;border-radius:16px;padding:32px 30px;text-align:left}
   .quote p{font-size:19px;line-height:1.5;margin:0 0 20px;color:#fff}
@@ -154,15 +155,9 @@
   .contact .head .emph{color:#fff;font-weight:500;font-size:clamp(18px,2vw,22px);margin:16px auto 0;max-width:52ch}
   .contact-grid{display:flex;flex-direction:column;align-items:center;gap:clamp(90px,12vw,140px);max-width:640px;margin:clamp(44px,5vw,60px) auto 0}
   form{margin:0;display:grid;gap:20px;text-align:left;width:100%;max-width:440px}
-  .field{display:grid;gap:8px}
-  label{font-family:'General Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.03em;color:#c8c8c8}
-  input,textarea{font-family:inherit;font-size:16px;color:#fff;background:#161616;border:1.5px solid #333;border-radius:12px;padding:14px}
   input::placeholder,textarea::placeholder{color:#6a6a6a}
   input:focus,textarea:focus{outline:none;border-color:#fff}
   textarea{resize:vertical;min-height:120px}
-  form .btn-invert{width:100%;padding:17px;border:none;cursor:pointer;font-size:15px}
-  .consent{margin:0;text-align:center;font-size:14px;color:#8a8a8a}
-  .consent a{color:#c8c8c8;text-decoration:underline}
   .contact-info{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:clamp(28px,6vw,56px);text-align:center}
   .contact-info .ci-label{display:block;font-family:'General Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#9a9a9a;margin-bottom:8px}
   .contact-info a{font-family:'General Sans',sans-serif;font-size:clamp(19px,2vw,24px);font-weight:600;color:#fff;text-decoration:none}
@@ -189,7 +184,6 @@
     section{padding:44px 0}
     .svc{padding:30px 24px}
     .quote{padding:26px 22px}
-    form .btn-invert{padding:16px}
   }
 </style>
 </head>
@@ -212,8 +206,9 @@
 <section class="hero">
   <div class="wrap hero-body">
     <div class="hero-inner">
-      <h1 class="grot">La strategia giusta per far crescere la tua azienda.</h1>
-      <p class="lead">Aiuto imprenditori italiani a costruire un business scalabile, raddoppiare le vendite e creare un brand riconoscibile&nbsp;in&nbsp;tutto&nbsp;il&nbsp;mondo.</p>
+      <p class="hero-name">Nicolò Atzeni</p>
+        <h1 class="grot">La strategia giusta per far crescere la tua azienda.</h1>
+      <p class="lead">Aiuto imprenditori italiani a costruire un business scalabile, raddoppiare le vendite e creare un brand riconoscibile in tutto il mondo.</p>
       <div class="actions">
         <a href="#contatti" class="btn btn-solid">Inizia ora</a>
         <a href="#contatti" class="btn btn-line">Contatti</a>
@@ -277,7 +272,7 @@
         <span class="kick">Risultati</span>
         <h2 class="grot">Hanno scelto di crescere con un metodo.</h2>
       </div>
-      <div class="bignum"><span id="counter" data-target="100" data-start="0">0</span>+<small>Imprenditori italiani accompagnati nella crescita, dalle startup alle grandi aziende.</small></div>
+      <div class="bignum"><span id="counter" data-target="100" data-start="0">100</span>+<small>Imprenditori italiani accompagnati nella crescita, dalle startup alle grandi aziende.</small></div>
     </div>
   </section>
 
